@@ -7,6 +7,10 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
+    "database:up" : "docker-compose -f docker-compose.dev.yml up -d",
+    "database:stop": "docker-compose -f docker-compose.dev.yml stop",
+    "database:remove": "docker-compose -f docker-compose.dev.yml down",
+    "database:remove-all": "docker-compose -f docker-compose.dev.yml down --volumes",
     "generate:proto": "protoc --plugin=protoc-gen-ts_proto=./node_modules/.bin/protoc-gen-ts_proto.cmd --ts_proto_out=./src/proto --ts_proto_opt=esModuleInterop=true,forceLong=long,useOptionals=true --proto_path=../proto ../proto/*.proto",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import {
   User,
   GetUserByIdResponse,
@@ -26,6 +26,7 @@ export class UserService {
       email: request.email,
     };
     this.users.push(newUser);
+    Logger.log("User been created")
     return { userId: newUser.id, status: 'success' };
   }
 }
